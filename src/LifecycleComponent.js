@@ -7,13 +7,16 @@ class LifecycleComponent extends React.Component {
       this.state = {
           count:0,
       }
+      this.increment = this.increment.bind(this)
   }
   increment = () => {
-      this.setState({ count: this.state.count + 1 })}
+    this.setState({ count: this.state.count + 1 })}
 
-  async componentDidMount () {
+   componentDidMount () {
+    const dataFetch =async ()=>{
       let response = await fetch ('https://todo-redev.herokuapp.com/api-docs/')
-        if(response.ok===true) {console.log('componentDidMount')}
+        if(response.ok===true) {console.log('componentDidMount')} }
+        dataFetch() 
       }
   componentDidUpdate () {
       console.log(this.state.count)
